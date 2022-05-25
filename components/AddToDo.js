@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TextInput, Button, View } from 'react-native';
 import React, { useState } from 'react';
 
-export default function AddToDoForm() {
+export default function AddToDoForm({addTaskHandler}) {
     const [text, setText] = useState(' ')
     const changeHandler = (val) => {
         setText(val);
@@ -13,7 +13,11 @@ export default function AddToDoForm() {
                 placeholder='New ToDo.....'
                 onChangeText={changeHandler}
             />
-            <Button onPress={() => console.log(text)} title='Add' color='coral'/>
+            <Button onPress={() =>
+                {
+                    
+                addTaskHandler(text)}
+                } title='Add' color='coral'/>
         </View>
     )
 }
