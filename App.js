@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import React, { useState } from 'react';
-
+import Header from './components/header';
 export default function App() {
   const [todos, setTodos] = useState([
     { text: 'Buy Coffee', key: '1' },
@@ -11,6 +11,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       {/* header */}
+      <Header />
       <View style={styles.content}>
          {/* form */}
          <View style={styles.list}>
