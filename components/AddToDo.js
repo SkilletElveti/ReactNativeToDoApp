@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, TextInput, Button, View } from 'react-native';
 import React, { useState } from 'react';
 
 export default function AddToDoForm() {
@@ -11,7 +11,7 @@ export default function AddToDoForm() {
             <TextInput
                 style={styles.input}
                 placeholder='New ToDo.....'
-                onChange={{changeHandler}}
+                onChange={changeHandler}
             />
         </View>
     )
