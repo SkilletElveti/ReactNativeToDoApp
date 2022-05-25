@@ -14,13 +14,23 @@ export default function App() {
     const arr = todos.filter((to) => to.key != id)
     setTodos(arr)
   }
+  const addTask = (text) => {
+    console.log("PUSH")
+    //console.log(text)
+    setTodos((prevTodos) => {
+      return[
+        {text: text, key: todos.length + 1},
+        ...prevTodos
+      ]
+    })
+  }
   return (
     <View style={styles.container}>
       {/* header */}
       <Header />
       <View style={styles.content}>
          {/* form */}
-         <AddToDoForm />
+         <AddToDoForm addTaskHandler = {addTask}/>
          <View style={styles.list}>
           <FlatList
             data={todos}
