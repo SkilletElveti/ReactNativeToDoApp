@@ -34,6 +34,7 @@ export default function App() {
          <View style={styles.list}>
           <FlatList
             data={todos}
+            style={flex=1}
             renderItem={({item})=> (
               <ToDo item={item} handler={handlerToDo}/>
             )}
