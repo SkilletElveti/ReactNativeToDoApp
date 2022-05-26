@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Header from './components/header';
 import ToDo from './components/Todo';
 import AddToDoForm from './components/AddToDo';
+import SandBox from './components/SandBox';
 export default function App() {
   const [todos, setTodos] = useState([
     { text: 'Buy Coffee', key: '1' },
@@ -18,8 +19,8 @@ export default function App() {
     console.log("PUSH")
     //console.log(text)
     setTodos((prevTodos) => {
-      return[
-        {text: text, key: todos.length + 1},
+      return [
+        { text: text, key: todos.length + 1 },
         ...prevTodos
       ]
     })
@@ -29,25 +30,24 @@ export default function App() {
       Keyboard.dismiss();
       //console.log("Dismissed KeyBoard")
     }}>
-    <View style={styles.container}>
-      {/* header */}
-      <Header />
+      <View style={styles.container}>
 
-      <View style={styles.content}>
-         {/* form */}
-         <AddToDoForm addTaskHandler = {addTask}/>
-         <View style={styles.list}>
-          <FlatList
-            data={todos}
-            style={flex=1}
-            renderItem={({item})=> (
-              <ToDo item={item} handler={handlerToDo}/>
-            )}
-          />
-         </View>
+        <Header />
+        <View style={styles.content}>
+
+          <AddToDoForm addTaskHandler={addTask} />
+          <View style={styles.list}>
+            <FlatList
+              data={todos}
+              
+              renderItem={({ item }) => (
+                <ToDo item={item} handler={handlerToDo} />
+              )}
+            />
+          </View>
+        </View>
+        <StatusBar style="auto" />
       </View>
-      <StatusBar style="auto" />
-    </View>
     </TouchableWithoutFeedback>
   );
 }
@@ -57,10 +57,18 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  content:{
+  content: {
+    flex:1,
+    
     padding: 55
   },
   list: {
-    marginTop: 20
+    flex:1,
+    
+    marginTop: 20,
+    
   }
 });
+
+
+
